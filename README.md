@@ -1,8 +1,22 @@
-# Lane-line-detection
+## Lane Line Detection
 
 The purpose of this project is to detect lanes of a highway and to compute the radius of the road's curvature using a video footage of highway driving taken by the front camera. Curved roads are more difficult to navigate than straight ones. The lane lines must be detected, but the images must also be undistorted, in order to compute the curvature appropriately. For camera calibration and perspective transform to get a bird's eye view of the road, image transformation is required.
 
+## Prerequisites and How to run
 
+- You have to have python2+ installed 
+- Run `pip install -r requirements.txt` to install all required packages
+- Give the run.sh shell execution privileges by running `chmod +x run.sh`
+
+The script run.sh can be run using the command
+```
+./run.sh input-video-path output-video-path
+```
+The script can operate in debugging mode using the command
+```
+./run.sh -d test-image-path
+```
+## Table of Contents
 The following are the project's pipeline and steps:
 1. [Camera Calibration](#camera-calibration)
 2. [Use a perspective transform to rectify binary image (“birds-eye view”)](#use-a-perspective-transform-to-rectify-binary-image-birds-eye-view)
