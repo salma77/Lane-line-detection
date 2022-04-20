@@ -6,9 +6,9 @@ def binary_thresholded(img, debug=False):
     """
     Function that applies a binary threshold to an image
     Parameters:
-        img (np.array): Image to be thresholded
-        Returns:
-            img_binary (np.array): Thresholded image
+        img : Image to be thresholded
+    Returns:
+        img_binary : Thresholded image
     """
     img = cv2.imread(img)
     # Transform image to gray scale
@@ -43,7 +43,6 @@ def binary_thresholded(img, debug=False):
     binary_2 = cv2.bitwise_or(hue_binary, sat_binary)
     binary = cv2.bitwise_or(binary_1, binary_2)
     if debug:
-        plt.imshow(binary, cmap='gray')
-        # plt.savefig('/home/salma/My_Code/cse/img-process/Lane-line-detection/binary_thresholded.png', format='png', dpi=300)
-        cv2.imwrite('/home/salma/My_Code/cse/img-process/Lane-line-detection/binary_thresholded.jpeg', binary*255)
+        # plt.imshow(binary, cmap='gray')
+        cv2.imwrite('./debugging/binary_thresholded.jpeg', binary*255)
     return binary
