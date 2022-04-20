@@ -10,7 +10,8 @@ def binary_thresholded(img, debug=False):
     Returns:
         img_binary : Thresholded image
     """
-    img = cv2.imread(img)
+    if debug:
+        img = cv2.imread(img)
     # Transform image to gray scale
     gray_img =cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # Apply sobel (derivative) in x direction, this is usefull to detect lines that tend to be vertical
@@ -43,6 +44,6 @@ def binary_thresholded(img, debug=False):
     binary_2 = cv2.bitwise_or(hue_binary, sat_binary)
     binary = cv2.bitwise_or(binary_1, binary_2)
     if debug:
-        # plt.imshow(binary, cmap='gray')
-        cv2.imwrite('./debugging/binary_thresholded.jpeg', binary*255)
+        plt.imsave("./debugging/binary_thresholded.jpeg",binary, cmap='gray')
+        # cv2.imwrite('./debugging/binary_thresholded.jpeg', binary*255)
     return binary
