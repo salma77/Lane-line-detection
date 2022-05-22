@@ -12,7 +12,7 @@ shift $(( OPTIND - 1 ))
 
 if $has_d_option; then
     # echo "Debugging..."
-    python main.py $1
+    python3 main.py $1
 else
-    python main.py $1 $2
+    python3 main.py $1 $2
 fi

@@ -1,6 +1,7 @@
 import numpy as np
 from moviepy.editor import VideoFileClip
-from lane_lines import *
+from object_detection import combined_pipeline
+from lane_lines import lane_finding_pipeline
 import sys
 
 
@@ -16,7 +17,7 @@ def main():
     else:
         video_output = args[1]
         clip1 = VideoFileClip(args[0])
-        output_clip = clip1.fl_image(lane_finding_pipeline)
+        output_clip = clip1.fl_image(combined_pipeline)
         output_clip.write_videofile(video_output, audio=False)
 
 if __name__ == '__main__':
